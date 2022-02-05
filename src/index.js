@@ -39,18 +39,6 @@ const dozens = [
 const levels = ["", "hundred", "thousand", "million", "billion"];
 let res = "";
 
-function numberToWord(number) {
-    let level = 0;
-    do {
-        let lastDigit = number - Math.floor(number / 10) * 10;
-        number = Math.floor(number / 10);
-        res = sayDigits(lastDigit) + levels[level] + " " + res;
-        //if level =0,  digits
-        level = level == 2 ? 0 : level;
-    } while (number >= 1);
-    return res;
-}
-
 let n = 909;
 let strN = String(n);
 
@@ -101,6 +89,19 @@ for (let level = 1; level <= arrayOfTriple.length; level++) {
     }
 
     console.log(res);
+}
+
+
+function numberToWord(number) {
+    let level = 0;
+    do {
+        let lastDigit = number - Math.floor(number / 10) * 10;
+        number = Math.floor(number / 10);
+        res = sayDigits(lastDigit) + levels[level] + " " + res;
+        //if level =0,  digits
+        level = level == 2 ? 0 : level;
+    } while (number >= 1);
+    return res;
 }
 
 // numberToWord(123456)
